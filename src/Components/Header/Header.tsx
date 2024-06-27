@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaUser } from "react-icons/fa6";
+import { useCookies } from "react-cookie";
 import { IoMdHome } from "react-icons/io";
+import Button from '../Common/Button/Button';
 import Logo from "../../assets/Educate_Logo.jpg";
 
 const Header: React.FC = () => {
+
+    const [ Name, setName ] = useState("")
+    const [ Cookie,setCookie ] = useCookies(["auth_token"]);
+
+    const Logout = () => {
+        setCookie("auth_token", "");
+        window.localStorage.clear();
+    }
+
 return (
     <div>
         <Link to="/" className='flex gap-4 items-center justify-center text-black no-underline'>
