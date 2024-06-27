@@ -8,7 +8,6 @@ import Button from '../Common/Button/Button';
 import Logo from "../../assets/Educate_Logo.jpg";
 import { useGetUserID } from '../Hooks/useGetUserID';
 
-
 const Header: React.FC = () => {
 
     const UserID = useGetUserID()
@@ -37,8 +36,8 @@ const Header: React.FC = () => {
     }
 
 return (
-    <div>
-        <Link to="/" className='flex gap-4 items-center justify-center text-black no-underline'>
+    <div className='flex items-center justify-between px-2 py-1 shadow-lg mb-1'>
+        <Link to="/" className='flex gap-0 items-center justify-center text-black no-underline'>
             <img src={Logo} alt="" width="50px" />
             <h1 className='font-bold text-3xl'>Educate</h1>
         </Link>
