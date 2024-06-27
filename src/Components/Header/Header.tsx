@@ -5,8 +5,11 @@ import { useCookies } from "react-cookie";
 import { IoMdHome } from "react-icons/io";
 import Button from '../Common/Button/Button';
 import Logo from "../../assets/Educate_Logo.jpg";
+import { useGetUserID } from '../Hooks/useGetUserID';
 
 const Header: React.FC = () => {
+
+    const UserID = useGetUserID()
 
     const [ Name, setName ] = useState("")
     const [ Cookie,setCookie ] = useCookies(["auth_token"]);
