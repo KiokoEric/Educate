@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaUser } from "react-icons/fa6";
 import { useCookies } from "react-cookie";
 import { IoMdHome } from "react-icons/io";
 import Button from '../Common/Button/Button';
