@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+html::-webkit-scrollbar {
+  width: 0.8rem;
+}
+html::-webkit-scrollbar-thumb {
+  background-color:var(--light-primary) ;
+}
+html::-webkit-scrollbar-track {
+  background-color: black;
+}
+:root {
+
+  --Bright-Orange: #f60;
+  --light-primary: hsl(11, 87%, 59%);
+  --light-primary-hover: hsl(11, 60%, 50%);
+
+}
+body {
+  font-family: 'Instrument Serif', serif;
+  font-size: 18px;
+  overflow-x: hidden;
+}
