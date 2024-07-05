@@ -16,14 +16,7 @@ html::-webkit-scrollbar-thumb {
   background-color:rgb(0, 61, 0);
 }
 html::-webkit-scrollbar-track {
-  background-color: black;
-}
-:root {
-
-  --Bright-Orange: #f60;
-  --light-primary: hsl(11, 87%, 59%);
-  --light-primary-hover: hsl(11, 60%, 50%);
-
+  background-color: white;
 }
 body {
   font-family: 'Instrument Serif', serif;
