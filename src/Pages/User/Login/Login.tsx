@@ -48,6 +48,10 @@ return (
             <img src={LoginImage} alt="" />
         </figure>
         <form method="post" onSubmit={handleSubmit(onLogin)} encType="multipart/form-data" className='flex flex-col items-center justify-start gap-2'>
+            <div className='mb-10'>
+                <h2 className='text-5xl'>Welcome to <span className='text-green-800'>E</span>ducate</h2>
+                <p className='mt-5 text-center' >Login & start playing</p>
+            </div>
             <div className='flex flex-col gap-2'>
                 <label className='font-bold' htmlFor="Email">Email</label> 
                 <input placeholder="Enter Email..." {...register('Email', { required: 'Email is required' })} className='border-black border-b h-8 outline-none truncate px-1 py-2 text-black w-96' required />
@@ -59,7 +63,7 @@ return (
                 {errors.Password && <p className="text-center text-red-700">{errors.Password.message}</p>}
             </div>
             <Button
-                ButtonText='Sign Up'
+                ButtonText='Login'
                 ButtonStyle='bg-black cursor-pointer mt-1 text-center text-white px-3 py-1 rounded w-40'
                 onClick={handleSubmit(onLogin)}
             />

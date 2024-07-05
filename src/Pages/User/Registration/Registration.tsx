@@ -50,6 +50,10 @@ return (
             <img src={RegistrationImage} alt="" />
         </figure>
         <form method="post" onSubmit={handleSubmit(onRegistration)} encType="multipart/form-data" className='flex flex-col items-center justify-start gap-2'>
+            <div className='mb-10'>
+                <h2 className='text-5xl'>Welcome to <span className='text-green-800' >E</span>ducate</h2>
+                <p className='mt-5 text-center'>Create your account.</p>
+            </div>
             <div className='flex flex-col gap-2'>
                 <label className='font-bold' htmlFor="">Name</label> 
                 <input placeholder="Enter Name..." {...register('Name', { required: 'Name is required' })} className='border-black border-b h-8 outline-none truncate px-1 py-2 text-black w-96' required />
