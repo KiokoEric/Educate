@@ -4,7 +4,7 @@ import { IoIosCreate } from "react-icons/io";
 
 const Home:React.FC = () => {
 return (
-    <div id='Home' className='bg-black flex flex-col justify-center text-white'>
+    <div id='Home' className=' flex flex-col justify-center text-black'>
         <div className='flex flex-col items-center justify-center gap-20'>
             <section className='m-auto w-3/4'>
                 <h1 className='mb-10 text-6xl text-center'>Welcome to <span className='text-green-800'>E</span>ducate</h1>

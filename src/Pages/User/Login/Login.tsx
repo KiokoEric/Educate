@@ -43,7 +43,7 @@ const Login: React.FC  = () => {
     }
 
 return (
-    <div className='grid grid-cols-2 gap-5 items-center justify-center'>
+    <div className='grid grid-cols-2 gap-5 items-center justify-center mt-1'>
         <figure>
             <img src={LoginImage} alt="" />
         </figure>

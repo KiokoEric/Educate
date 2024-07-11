@@ -1,10 +1,9 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import Button from '../../Components/Common/Button/Button';
+import Button from '../Common/Button/Button';
 
+export const QuizSettings: React.FC = () => {
 
-const QuizSettings: React.FC = () => {
-    
     const [Category, setCategory] = useState('')
     const [Difficulty, setDifficulty] = useState('')
     const [Type, setType] = useState('')
@@ -81,5 +80,3 @@ return (
     </div>
 )
 }
-
-export default QuizSettings
