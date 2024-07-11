@@ -1,13 +1,14 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React from 'react';
 import Button from '../../Components/Common/Button/Button';
+import { useAppContext } from '../../Components/Context/AppContext';
 
 
 const QuizSettings: React.FC = () => {
     
-    const [Category, setCategory] = useState('')
-    const [Difficulty, setDifficulty] = useState('')
-    const [Type, setType] = useState('')
+    const {Category, setCategory} = useAppContext()
+    const {Difficulty, setDifficulty} = useAppContext()
+    const {Type, setType} = useAppContext()
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -57,6 +58,7 @@ return (
                 <div className='flex flex-col gap-5'>
                     <label htmlFor="Difficulty" className='underline'>Difficulty</label>
                     <select id="" className='border-b-2 border-black outline-none px-1 py-1 rounded-sm text-black w-80' onChange={e => setDifficulty(e.target.value)} required>
+                        <option value="">Choose the difficulty below</option>
                         <option value="easy">Easy</option>
                         <option value="medium">Medium</option>
                         <option value="hard">Hard</option>
@@ -65,6 +67,7 @@ return (
                 <div className='flex flex-col gap-5'>
                     <label htmlFor="Type" className='underline'>Type</label>
                     <select id="" className='border-b-2 border-black outline-none px-1 py-1 rounded-sm text-black w-80' onChange={e => setType(e.target.value)} required>
+                        <option value="">Choose the type below</option>
                         <option value="multiple">Multiple Choice</option>
                         <option value="boolean">True / False</option>
                     </select>
