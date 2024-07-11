@@ -36,9 +36,9 @@ const Header: React.FC = () => {
     }
 
 return (
-    <div className='flex items-center justify-between h-10 px-2 shadow-lg mb-1'>
+    <div className='flex items-center justify-between h-10 px-2 shadow-lg'>
         <Link to="/" className='flex gap-0 items-center justify-center text-black no-underline'>
-            <img src={Logo} alt="" width="50px" />
+            <img src={Logo} alt="" width="45px" />
             <h1 className='font-bold text-3xl'>Educate</h1>
         </Link>
         <Link to="/" className='text-black no-underline'>
