@@ -2,14 +2,15 @@ import React from 'react';
 
 interface ButtonProps {
     onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+    id?: string;
     Children?: any;
-    ButtonText: string;
+    ButtonText: any;
     ButtonStyle: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ Children, ButtonText, ButtonStyle, onClick }) => {
+const Button: React.FC<ButtonProps> = ({id, Children, ButtonText, ButtonStyle, onClick }) => {
 return (
-    <div onClick={onClick} className={ButtonStyle}> {Children} { ButtonText }</div>
+    <div id={id} onClick={onClick} className={ButtonStyle}>{Children} <p>{ ButtonText }</p></div>
 )
 }
 
