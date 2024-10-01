@@ -3,11 +3,11 @@ import { FaUser } from "react-icons/fa6";
 import { useCookies } from "react-cookie";
 import { IoMdHome } from "react-icons/io";
 import Button from '../Common/Button/Button';
+import { useNavigate } from 'react-router-dom';
 import Logo from "../../assets/Educate_Logo.jpg";
 import Navigate from "../Common/Navigate/Navigate";
 import React, { useEffect, useState } from 'react';
 import { useGetUserID } from '../Hooks/useGetUserID';
-import { Link, useNavigate } from 'react-router-dom';
 import { faX } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -68,22 +68,20 @@ return (
         />
         <section className="hidden xl:flex items-center justify-center gap-2">
                 {!UserID?
-                <Link to="/Registration">
-                    <Button
-                        ButtonText='Sign Up'
-                        ButtonStyle='bg-black cursor-pointer text-center text-base text-white px-5 py-1 rounded'
-                    />
-                </Link> : null
+                    <Navigate
+                        Navigation="/Registration"
+                        NavigateStyle="bg-black cursor-pointer text-center text-base text-white px-5 py-1 rounded"
+                        NavigateText="Sign Up"
+                    /> : null
                 }
                 {
                 !Cookie.auth_token ?
                 (
-                    <Link to="/">
-                        <Button
-                            ButtonText='Login'
-                            ButtonStyle='bg-black cursor-pointer text-center text-base text-white px-5 py-1 rounded w-20'
-                        />
-                    </Link>
+                    <Navigate
+                        Navigation="/"
+                        NavigateStyle="bg-black cursor-pointer text-center text-base text-white px-5 py-1 rounded w-20"
+                        NavigateText="Login"
+                    />
                 ) : 
                 (
                     <Button
