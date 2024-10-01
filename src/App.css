@@ -13,7 +13,7 @@ html::-webkit-scrollbar {
   width: 0.8rem;
 }
 html::-webkit-scrollbar-thumb {
-  background-color:rgb(0, 61, 0);
+  background-color:#0D9276;
 }
 html::-webkit-scrollbar-track {
   background-color: white;
@@ -25,4 +25,40 @@ body {
 }
 #Home {
   min-height: 95vh;
+}
+.HomeIcons {
+  color: #1E6B7F;
+}
+#Question {
+  min-height: 80vh;
+}
+#Delete {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+}
+#Delete:hover::after {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  color: black;
+  content: "Delete Question";
+  font-family: 'Instrument Serif', serif;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 5px;
+  position: absolute;
+  left: 2px;
+  text-align: center;
+  transform: translateX(-50%);
+  width: 120px;
+  z-index: 1;
+}
+#Quizzes {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5) ),url(./assets/Quizzes_Page.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 250px;
+  width: 100%;
 }
