@@ -1,24 +1,40 @@
-import Axios from "axios";
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import axios from "axios";
 import { FaUser } from "react-icons/fa6";
 import { useCookies } from "react-cookie";
 import { IoMdHome } from "react-icons/io";
 import Button from '../Common/Button/Button';
 import Logo from "../../assets/Educate_Logo.jpg";
+import Navigate from "../Common/Navigate/Navigate";
+import React, { useEffect, useState } from 'react';
 import { useGetUserID } from '../Hooks/useGetUserID';
+import { Link, useNavigate } from 'react-router-dom';
+import { faX } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Header: React.FC = () => {
 
     const UserID = useGetUserID()
+    const navigate = useNavigate()
+    const [Cookie,setCookie] = useCookies(["auth_token"])
 
-    const [ Name, setName ] = useState("")
-    const [ Cookie,setCookie ] = useCookies(["auth_token"]);
+    // USESTATE HOOK
+
+    const [Name, setName] = useState<string>("")
+    const [ExtendNavbar,setExtendNavbar ] = useState<boolean>(false)
+
+    // OPENING AND CLOSING OF THE MOBILE MENU
+
+    const toggleMenu = () => {
+        setExtendNavbar(!ExtendNavbar);
+    };
+
+    // RECEIVING THE NAME OF THE USER
 
     useEffect(() => {
         
         const FetchName  = async() => {
-            await Axios.get(`http://localhost:4000/Users/${UserID}/Name`, {
+            await axios.get(`http://localhost:4000/Users/${UserID}/Name`, {
             headers: { authorization: Cookie.auth_token },
             }) 
             .then((Response) => {
@@ -30,55 +46,106 @@ const Header: React.FC = () => {
 
     },[UserID])
 
+    // LOGGING OUT OF ONE'S ACCOUNT
+
     const Logout = () => {
         setCookie("auth_token", "");
         window.localStorage.clear();
+        navigate("/");
     }
 
 return (
-    <div className='flex items-center justify-between h-10 px-2 shadow-lg'>
-        <Link to="/" className='flex gap-0 items-center justify-center text-black no-underline'>
-            <img src={Logo} alt="" width="45px" />
-            <h1 className='font-bold text-3xl'>Educate</h1>
-        </Link>
-        <Link to="/" className='text-black no-underline'>
-            <IoMdHome size="1.8rem" color='black' />
-        </Link>
-        <section className="flex items-center justify-center gap-2" >
-            <Link to="/Favourites" className='' >
-                <Button ButtonText='Favourites Recipes' ButtonStyle='bg-lightOrange px-3 py-1 rounded text-base text-white' />
-            </Link>
-            {
+    <div className='flex items-center justify-between min-h-10 px-2 shadow-lg'>
+        <Navigate
+            Navigation='/Home'
+            NavigateStyle="flex gap-0 items-center justify-center font-bold text-3xl text-black no-underline"
+            NavigateText="ducate"
+            children={<img src={Logo} alt="" width="24px" />}
+        />
+        <Navigate
+            Navigation='/Home'
+            children={<IoMdHome size="1.8rem" color='black' />}
+        />
+        <section className="hidden xl:flex items-center justify-center gap-2">
+                {!UserID?
                 <Link to="/Registration">
                     <Button
                         ButtonText='Sign Up'
                         ButtonStyle='bg-black cursor-pointer text-center text-base text-white px-5 py-1 rounded'
                     />
-                </Link>
+                </Link> : null
                 }
                 {
                 !Cookie.auth_token ?
                 (
-                    <Link to="/Login">
+                    <Link to="/">
                         <Button
                             ButtonText='Login'
-                            ButtonStyle='bg-black cursor-pointer text-center text-base text-white px-5 py-1 rounded'
+                            ButtonStyle='bg-black cursor-pointer text-center text-base text-white px-5 py-1 rounded w-20'
                         />
                     </Link>
                 ) : 
                 (
                     <Button
                         ButtonText='Logout'
-                        ButtonStyle='bg-black cursor-pointer h-8 text-center text-base text-white px-3 py-1 rounded'
+                        ButtonStyle='bg-black cursor-pointer h-8 text-center text-base text-white px-3 py-1 rounded w-20'
                         onClick={Logout}
                     />
                 )
             }
-            <Link to={`/Profile`}>
-                <FaUser size="2rem" className="bg-black text-white cursor-pointer px-1.5 py-1.5 rounded-full" />
-            </Link>
+            {
+                UserID ?
+                <Navigate
+                    Navigation={`/Profile/${UserID}`}
+                    children={<FaUser size="2rem" className="bg-black text-white cursor-pointer px-1.5 py-1.5 rounded-full" />}
+                />
+                : null
+            }
             { UserID ? <h4 className="font-bold flex flex-col text-center"><span>Welcome</span>{Name}</h4> : null }
         </section>
+        <div className="xl:hidden flex items-center gap-3">
+            {
+                UserID ? 
+                <Navigate
+                    Navigation={`/Profile/${UserID}`}
+                    children={<FaUser size="1.8rem" className="bg-black text-white cursor-pointer px-1.5 py-1.5 rounded-full" />}
+                /> : null
+            }
+            <button onClick={toggleMenu} className="focus:outline-none">
+                {ExtendNavbar ? <FontAwesomeIcon icon={faX} className="text-sm" /> : <FontAwesomeIcon icon={faBars} className="text-base" />}
+            </button>
+            { UserID ? <h4 className="font-bold flex flex-col text-center"><span>Welcome</span>{Name}</h4> : null }
+            {/* MOBILE MENU */}
+            {ExtendNavbar && (
+                <nav className="bg-white absolute top-12 mt-1.5 right-0 flex flex-col gap-4 m-auto pl-4 pt-2 pb-8 rounded-Header text-base text-black w-36 xl:hidden">
+                    {
+                        !UserID? 
+                        <Navigate
+                            Navigation="/Registration"
+                            NavigateStyle="border-b border-black text-black no-underline w-28"
+                            NavigateText="Sign Up"
+                        /> : null
+                    }
+                    {
+                        !Cookie.auth_token ?
+                        (
+                            <Navigate
+                                Navigation="/"
+                                NavigateStyle="border-b border-black text-black no-underline w-28"
+                                NavigateText="Login"
+                            />
+                        ) : 
+                        (
+                            <Navigate
+                                NavigateStyle="border-b border-black text-black no-underline w-28"
+                                NavigateText="Logout"
+                                onClick={Logout}
+                            />
+                        )
+                    }
+                </nav>
+            )}
+        </div>
     </div>
 )
 }
