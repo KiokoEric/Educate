@@ -1,38 +1,45 @@
-import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import SelectImage from '../../assets/Select.png';
+import Select from '../../Components/Common/Select/Select';
 import Button from '../../Components/Common/Button/Button';
 import { useAppContext } from '../../Components/Context/AppContext';
 
-
 const QuizSettings: React.FC = () => {
     
-    const {Category, setCategory} = useAppContext()
-    const {Difficulty, setDifficulty} = useAppContext()
-    const {Type, setType} = useAppContext()
+    const navigate = useNavigate()
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+    // USESTATE
 
-    axios.get(`https://opentdb.com/api.php?amount=10&category=${Category}&difficulty=${Difficulty}&type=${Type}`)
-    }
+    const [Errors, setErrors] = useState<string>("")
 
-    const SubmitParameters = (e: React.MouseEvent<HTMLDivElement>) => {
+    // USEAPP CONTEXT
+
+    const {Category, setCategory , Difficulty, setDifficulty, Type, setType} = useAppContext()
+
+    // SUBMISSION OF QUIZ SETTINGS FUNCTION
+
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-    
-        axios.get(`https://opentdb.com/api.php?amount=10&category=${Category}&difficulty=${Difficulty}&type=${Type}`)
+        if ( Category === ''|| Difficulty === '' || Type === '' ) {
+            setErrors("Ensure all the required fields are filled!")
+        }
+        else {
+            navigate(`/Questions`)
+        }
     }
 
 return (
-    <div className='flex items-center justify-between h-screen m-auto w-3/4'>
-        <section>
-            <h1 className='capitalize font-bold text-4xl'>Select your quiz parameters</h1>
+    <div className='flex items-start justify-center h-screen m-auto mt-10 lg:items-center lg:mt-0 md:justify-between md:w-10/12'>
+        <section className='hidden md:block'>
+            <img src={SelectImage} alt="Select-Image" />
         </section>
         <section>
-            <h1 className='mb-5 text-4xl underline'>Quiz Parameters</h1>
-            <form onSubmit={handleSubmit} action="" method="post" className='flex flex-col gap-10'>
+            <h1 className='capitalize mb-5 text-3xl text-center underline xl:text-left sm:text-4xl'>Select your quiz parameters</h1>
+            <form onSubmit={handleSubmit} action="" method="post" className='flex flex-col items-center justify-center gap-10'>
                 <div className='flex flex-col gap-5'>
-                    <label htmlFor="Category" className='underline'>Category</label>
-                    <select id="" className='border-b-2 border-black outline-none px-1 py-1 rounded-sm text-black w-80' onChange={e => setCategory(e.target.value)} required>
+                    <label htmlFor="Category" className='font-bold text-xl underline'>Category</label>
+                    <Select SelectStyle='border-b-2 border-black outline-none px-1 py-1 rounded-sm text-black w-80 lg:w-96' Value={Category} onChange={(e: any) => setCategory(e.target.value)}>
                         <option value="">Search among the options below</option>
                         <option value="9">General Knowledge</option>
                         <option value="10">Entertainment: Books</option>
@@ -53,30 +60,31 @@ return (
                         <option value="25">Art</option>
                         <option value="26">Celebrities</option>
                         <option value="27">Animal</option>
-                    </select>
+                    </Select>
                 </div>
                 <div className='flex flex-col gap-5'>
-                    <label htmlFor="Difficulty" className='underline'>Difficulty</label>
-                    <select id="" className='border-b-2 border-black outline-none px-1 py-1 rounded-sm text-black w-80' onChange={e => setDifficulty(e.target.value)} required>
+                    <label htmlFor="Difficulty" className='font-bold text-xl underline'>Difficulty</label>
+                    <Select SelectStyle='border-b-2 border-black outline-none px-1 py-1 rounded-sm text-black w-80 lg:w-96' Value={Difficulty} onChange={(e: any) => setDifficulty(e.target.value)}>
                         <option value="">Choose the difficulty below</option>
                         <option value="easy">Easy</option>
                         <option value="medium">Medium</option>
                         <option value="hard">Hard</option>
-                    </select>
+                    </Select>
                 </div>
                 <div className='flex flex-col gap-5'>
-                    <label htmlFor="Type" className='underline'>Type</label>
-                    <select id="" className='border-b-2 border-black outline-none px-1 py-1 rounded-sm text-black w-80' onChange={e => setType(e.target.value)} required>
+                    <label htmlFor="Type" className='font-bold text-xl underline'>Type</label>
+                    <Select SelectStyle='border-b-2 border-black outline-none px-1 py-1 rounded-sm text-black w-80 lg:w-96' Value={Type} onChange={(e: any) => setType(e.target.value)}>
                         <option value="">Choose the type below</option>
                         <option value="multiple">Multiple Choice</option>
                         <option value="boolean">True / False</option>
-                    </select>
+                    </Select>
                 </div>
-                <div className='flex items-center justify-center'>
+                <div className='flex flex-col items-center justify-center'>
+                    <p className='font-bold text-center text-red-700' >{Errors}</p>
                     <Button
                         ButtonText='Submit Parametres'
-                        ButtonStyle='bg-green-700 cursor-pointer h-8 mt-5 text-center text-base text-white px-3 py-1 rounded w-1/2'
-                        onClick={SubmitParameters}
+                        ButtonStyle='bg-Green cursor-pointer flex items-center justify-center h-8 mt-5 text-center text-lg text-white px-3 py-2 rounded w-48 sm:w-56'
+                        onClick={handleSubmit}
                     />
                 </div>
             </form>
