@@ -53,7 +53,7 @@ const Question:React.FC = () => {
             } else {
                 setShowResults(true);
             }
-        }, 1500);
+        }, 500);
     };
 
     // HANDLE NEXT QUESTION FUNCTION
