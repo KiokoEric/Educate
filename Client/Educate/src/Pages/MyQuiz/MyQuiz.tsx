@@ -5,8 +5,8 @@ import Female from '../../assets/Female.webp';
 import Loading from "../../assets/Loading.gif";
 import React, { useEffect, useState } from 'react';
 import QuizImage from '../../assets/Question.jpeg';
+import Answer from '../../Components/Common/Answer/Answer';
 import Button from '../../Components/Common/Button/Button';
-import Answer from '../../Components/Common/Answers/Answer';
 import Navigate from '../../Components/Common/Navigate/Navigate';
 
 const MyQuiz:React.FC = () => {
