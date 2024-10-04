@@ -54,6 +54,23 @@ body {
   width: 120px;
   z-index: 1;
 }
+#DeleteQuiz:hover::after {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  color: black;
+  content: "Delete Quiz";
+  font-family: 'Instrument Serif', serif;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 5px;
+  position: absolute;
+  left: 2px;
+  text-align: center;
+  transform: translateX(-50%);
+  width: 120px;
+  z-index: 1;
+}
 #Quizzes {
   background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5) ),url(./assets/Quizzes_Page.jpg);
   background-position: center;
