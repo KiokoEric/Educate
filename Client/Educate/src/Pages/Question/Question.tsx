@@ -5,7 +5,7 @@ import Loading from "../../assets/Loading.gif";
 import React, { useEffect, useState } from 'react';
 import QuizImage from '../../assets/Question.jpeg';
 import Button from '../../Components/Common/Button/Button';
-import Answer from '../../Components/Common/Answers/Answer';
+import Answer from '../../Components/Common/Answer/Answer';
 import Navigate from '../../Components/Common/Navigate/Navigate';
 import { useAppContext } from '../../Components/Context/AppContext';
 
