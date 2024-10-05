@@ -42,9 +42,9 @@ const Quizzes: React.FC = () => {
 
     // DELETE QUIZ
 
-    const handleDelete= (_id: any) => {
-        axios.delete(`http://localhost:4000/Quiz/${_id}`, {
-            headers: { authorization: Cookie.auth_token }
+    const handleDelete= (id: any) => {
+        axios.delete(`http://localhost:4000/Quiz/${id}`, {
+            headers: { authorization: Cookie.auth_token } 
         }) 
         .then(
             window.location.reload()
