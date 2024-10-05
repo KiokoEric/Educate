@@ -49,6 +49,7 @@ body {
   padding: 5px;
   position: absolute;
   left: 2px;
+  top: 25px;
   text-align: center;
   transform: translateX(-50%);
   width: 120px;
@@ -70,10 +71,11 @@ body {
   font-weight: bold;
   padding: 5px;
   position: absolute;
-  left: 30px;
+  left: 85px;
+  top: 10px;
   text-align: center;
   transform: translateX(-50%);
-  width: 120px;
+  width: 80px;
   z-index: 1;
 }
 #Quizzes {
