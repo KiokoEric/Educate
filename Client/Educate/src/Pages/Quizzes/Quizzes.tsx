@@ -59,7 +59,7 @@ return (
             Heading='My Quizzes'
             HeadingStyle='font-bold text-5xl'
         />
-        <section className='grid grid-cols-1 items-center justify-center gap-8 m-auto w-11/12 sm:grid-cols-3'>
+        <section className='grid grid-cols-1 items-start justify-center gap-8 m-auto w-11/12 sm:grid-cols-3'>
             {isLoading ? (
                 <div className="flex flex-col items-center justify-center m-auto w-screen">
                     <img src={loadingGif} alt="Loading Gif..." id="Loading" />
