@@ -111,7 +111,7 @@ return (
         ) : (
     <div className='flex flex-col items-center justify-center mb-10'>
         <h1 className='hidden lg:block font-bold mt-5 text-center text-black text-4xl'>Quiz Name: {Name} </h1>
-        <h2 className='hidden lg:block font-bold mt-5 text-center text-black text-3xl'>Question Number: Question Number: {currentQuestion + 1} / {Questions.length}</h2>
+        <h2 className='hidden lg:block font-bold mt-5 text-center text-black text-3xl'>Question Number: {currentQuestion + 1} / {Questions.length}</h2>
         <div className='flex justify-center items-center gap-10 px-5'>
             <section className='hidden lg:block lg:w-4/12 xl:w-5/12'>
                 <img src={QuizImage} alt=""/>
@@ -120,7 +120,7 @@ return (
                 <div className='flex flex-col gap-5 items-center justify-center sm:gap-10 sm:justify-between'>
                     <div className='lg:hidden'>
                         <h1 className='font-bold mt-5 text-center text-black text-4xl'>Quiz Name: {Name} </h1>
-                        <h2 className='font-bold mt-5 text-center text-black text-3xl'>Question Number: Question Number: {currentQuestion + 1} / {Questions.length}</h2>
+                        <h2 className='font-bold mt-5 text-center text-black text-3xl'>Question Number: {currentQuestion + 1} / {Questions.length}</h2>
                     </div>
                     <h1 className='font-bold text-center text-black text-3xl'>{Questions[currentQuestion].Question}</h1>
                     <div className='grid grid-cols-1 items-center justify-center gap-5 m-auto sm:w-12/12 md:w-11/12 sm:grid-cols-2'>
