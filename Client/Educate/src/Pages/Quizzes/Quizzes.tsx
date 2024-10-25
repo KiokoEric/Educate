@@ -82,9 +82,8 @@ return (
                 </Link>
                 <div className="flex gap-3 items-center justify-center">
                     <div id="DeleteQuiz">
-                        <FontAwesomeIcon icon={faTrash} className="bg-blue-600 cursor-pointer font-bold p-3 rounded-full text-xl" onClick={() => handleDelete(Quiz._id)} /> 
+                        <FontAwesomeIcon icon={faTrash} className="bg-blue-600 cursor-pointer font-bold p-3 rounded-full text-xl hover:bg-Green" onClick={() => handleDelete(Quiz._id)} /> 
                     </div>
-                    
                 </div>
             </div>
             )})
