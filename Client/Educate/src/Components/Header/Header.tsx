@@ -94,6 +94,7 @@ return (
             {
                 UserID ?
                 <Navigate
+                    ID='ProfileIcon'
                     Navigation={`/Profile/${UserID}`}
                     children={<FaUser size="2rem" className="bg-black text-white cursor-pointer px-1.5 py-1.5 rounded-full" />}
                 />
@@ -105,6 +106,7 @@ return (
             {
                 UserID ? 
                 <Navigate
+                    ID='ProfileIcon'
                     Navigation={`/Profile/${UserID}`}
                     children={<FaUser size="1.8rem" className="bg-black text-white cursor-pointer px-1.5 py-1.5 rounded-full" />}
                 /> : null
@@ -115,7 +117,7 @@ return (
             { UserID ? <h4 className="font-bold flex flex-col text-center"><span>Welcome</span>{Name}</h4> : null }
             {/* MOBILE MENU */}
             {ExtendNavbar && (
-                <nav className="bg-white absolute top-12 mt-1.5 right-0 flex flex-col gap-4 m-auto pl-4 pt-2 pb-8 rounded-Header text-base text-black w-36 xl:hidden">
+                <nav className="bg-white absolute top-12 mt-1.5 right-0 flex flex-col gap-4 m-auto pl-4 pt-2 pb-8 rounded-Header text-base text-black w-36 z-50 xl:hidden">
                     {
                         !UserID? 
                         <Navigate

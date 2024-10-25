@@ -152,7 +152,7 @@ return (
                     <Button 
                         onClick={handleNextQuestion}
                         ButtonText='Next Question'
-                        ButtonStyle='bg-DarkBlue cursor-pointer p-1.5 rounded-sm text-center text-xl text-white w-64 sm:text-3xl'
+                        ButtonStyle='bg-Blue cursor-pointer p-1.5 rounded-sm text-center text-xl text-white w-64 sm:text-3xl hover:bg-Green'
                     />
                 </section>
             </section>

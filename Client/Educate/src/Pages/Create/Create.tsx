@@ -135,7 +135,7 @@ return (
                 <p className="font-bold mt-3 text-center text-red-700">{Error}</p>
                 <Button
                     onClick={addNewQuestion}
-                    ButtonStyle='bg-Green cursor-pointer h-8 mt-10 text-center text-lg text-white px-3 py-1 rounded w-48'
+                    ButtonStyle='bg-Blue cursor-pointer h-8 mt-10 text-center text-lg text-white px-3 py-1 rounded w-48 hover:bg-Green'
                     ButtonText='Add New Question'
                 />
             </section>
@@ -162,7 +162,7 @@ return (
             <p className="font-bold text-green-600 text-center" >{Success}</p>
             <Button
                 onClick={SubmitQuiz}
-                ButtonStyle='bg-Green cursor-pointer h-8 mt-10 text-center text-lg text-white px-3 py-1 rounded w-48'
+                ButtonStyle='bg-Blue cursor-pointer h-8 mt-10 text-center text-lg text-white px-3 py-1 rounded w-48 hover:bg-Green'
                 ButtonText='Submit Quiz'
             />
         </div>

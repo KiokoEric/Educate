@@ -33,15 +33,12 @@ const DeleteProfile:React.FC = () => {
     }
 
 return (
-    <div className='grid grid-cols-1 gap-5 items-center justify-center m-auto mt-5 w-11/12 sm:mt-0 sm:grid-cols-2'>
-        <figure className='hidden sm:block'>
-            <img src={DeleteImage} alt="" />
-        </figure>
+    <div className='grid grid-cols-1 gap-5 items-center justify-center m-auto mt-5 text-center w-11/12'>
         <div className="flex flex-col items-center justify-center gap-5">
             <h1 className='font-bold text-5xl text-center text-black'>We are sorry to see you go, but hope to see you again!</h1>
             <Button
                 onClick={()=>DeleteUser(userID)}
-                ButtonStyle="bg-black cursor-pointer flex items-center justify-center gap-4 text-center text-white px-2 py-1.5 rounded w-40"
+                ButtonStyle="bg-Blue cursor-pointer flex items-center justify-center gap-4 text-center text-white px-2 py-1.5 rounded w-40 hover:bg-black"
                 ButtonText="Delete My Profile"
                 Children={<FontAwesomeIcon icon={faTrash} />}
             /> 

@@ -83,7 +83,7 @@ return (
                     <p className='font-bold text-center text-red-700' >{Errors}</p>
                     <Button
                         ButtonText='Submit Parametres'
-                        ButtonStyle='bg-Green cursor-pointer flex items-center justify-center h-8 mt-5 text-center text-lg text-white px-3 py-2 rounded w-48 sm:w-56'
+                        ButtonStyle='bg-Blue cursor-pointer flex items-center justify-center h-8 mt-5 text-center text-lg text-white px-3 py-2 rounded w-48 sm:w-56 hover:bg-Green'
                         onClick={handleSubmit}
                     />
                 </div>

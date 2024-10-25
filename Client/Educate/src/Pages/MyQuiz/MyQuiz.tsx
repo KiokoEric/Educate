@@ -46,14 +46,16 @@ const MyQuiz:React.FC = () => {
 
     const handleAnswer = (answer: any) => {
         setSelectedAnswer(answer)
-        if (answer === Questions[currentQuestion].correctAnswer) {
-            setScore(prev => prev + 1)
-        }
-        if (currentQuestion + 1 < Questions.length) {
-            setCurrentQuestion(currentQuestion + 1);
-        } else {
-            setShowResults(true);
-        }
+        setTimeout(() => {
+            if (answer === Questions[currentQuestion].correctAnswer) {
+                setScore(prev => prev + 1)
+            }
+            if (currentQuestion + 1 < Questions.length) {
+                setCurrentQuestion(currentQuestion + 1);
+            } else {
+                setShowResults(true);
+            }
+        }, 500)
     };
 
     // HANDLE NEXT QUESTION FUNCTION
@@ -150,7 +152,7 @@ return (
                     <Button 
                         onClick={handleNextQuestion}
                         ButtonText='Next Question'
-                        ButtonStyle='bg-DarkBlue cursor-pointer p-2 rounded text-center text-2xl text-white w-64 sm:text-3xl'
+                        ButtonStyle='bg-Blue cursor-pointer p-2 rounded text-center text-2xl text-white w-64 sm:text-3xl hover:bg-Green'
                     />
                 </section>
             </section>
