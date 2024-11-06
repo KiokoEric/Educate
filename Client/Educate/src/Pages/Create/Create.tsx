@@ -18,7 +18,7 @@ const Create:React.FC = () => {
     const [Error, setError] =useState<string>('')
     const [Success, setSuccess] = useState<string>('')
     const [Questions, setQuestions] = useState<any>([])
-    const [userOwner, setUserOwner] = useState<any>(userID)
+    const [userOwner, __] = useState<any>(userID)
     const [Description, setDescription] = useState<string>('')
     const [correctAnswer, setCorrectAnswer] = useState<string>('')
     const [currentQuestion, setCurrentQuestion] = useState<string>('')
