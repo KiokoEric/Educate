@@ -46,9 +46,9 @@ const Quizzes: React.FC = () => {
         axios.delete(`http://localhost:4000/Quiz/${id}`, {
             headers: { authorization: Cookie.auth_token } 
         }) 
-        .then(
+        .then(() => {
             window.location.reload()
-        )
+        })
     }
 
 return (
