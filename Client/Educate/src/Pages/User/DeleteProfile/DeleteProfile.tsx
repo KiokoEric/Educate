@@ -2,7 +2,6 @@ import axios from "axios";
 import React from 'react';
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
-import DeleteImage from "../../../assets/DeleteImage.jpg";
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../../Components/Common/Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
