@@ -10,7 +10,7 @@ dotenv.config();
 // MIDDLEWARE
 
 app.use(cors({
-    origin: ["https://educate-3h1jo3qrn-eric-kiokos-projects.vercel.app"],
+    origin: ["https://educate-rouge.vercel.app/"],
     methods: ["POST", "GET", "PUT", "DELETE"],    
     credentials: true
 }))
