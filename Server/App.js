@@ -29,6 +29,7 @@ mongoose.connect(dbUrl)
 const UserRoute = require("./Routes/UserRoute");
 const QuizRoute = require("./Routes/QuizRoute");  
 
+app.get('/', (req,res) => res.status(200).json({ message: 'Welcome to Educate.' })
 app.use("/Quiz", QuizRoute);
 app.use("/Users", UserRoute);
 
