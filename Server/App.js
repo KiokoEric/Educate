@@ -10,8 +10,8 @@ dotenv.config();
 // MIDDLEWARE
 
 app.use(cors({
-    origin: ["https://educate-3h1jo3qrn-eric-kiokos-projects.vercel.app/"],
-    methods: ["POST", "GET", "PUT","DELETE"],    
+    origin: ["http://educate-3h1jo3qrn-eric-kiokos-projects.vercel.app"],
+    methods: ["POST", "GET", "PUT", "DELETE"],    
     credentials: true
 }))
 app.use(express.json())
