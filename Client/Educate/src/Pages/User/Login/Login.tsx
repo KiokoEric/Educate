@@ -29,7 +29,7 @@ const Login: React.FC  = () => {
 
     const onLogin : SubmitHandler<FormValues> = async (data) => {
         try {
-            const response = await axios.post("http://localhost:4000/Users/Login", data)
+            const response = await axios.post("https://educate-server-sooty.vercel.app/Users/Login", data)
                 setCookie("auth_token", response.data.Token)
                 window.localStorage.setItem("UserID", response.data.UserID)
                 enqueueSnackbar("Logged in successfully!" , { 
@@ -61,7 +61,7 @@ const Login: React.FC  = () => {
             Email : "kiokoerick040@gmail.com" , Password : "Victory2024"
         }
         try {
-                const response = await axios.post("http://localhost:4000/Users/Login", data)
+                const response = await axios.post("https://educate-server-sooty.vercel.app/Users/Login", data)
                 setCookie("auth_token", response.data.Token)
                 window.localStorage.setItem("UserID", response.data.UserID)
                 enqueueSnackbar("Logged in successfully!" , {variant: "success"}) 
