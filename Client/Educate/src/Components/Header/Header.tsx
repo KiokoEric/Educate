@@ -34,7 +34,7 @@ const Header: React.FC = () => {
     useEffect(() => {
         
         const FetchName  = async() => {
-            await axios.get(`http://localhost:4000/Users/${UserID}/Name`, {
+            await axios.get(`https://storykeeper-server.onrender.com/Users/${UserID}/Name`, {
             headers: { authorization: Cookie.auth_token },
             }) 
             .then((Response) => {
