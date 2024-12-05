@@ -17,7 +17,7 @@ const DeleteProfile:React.FC = () => {
 
     const DeleteUser = (id: any) => {
         try{
-            axios.delete(`http://localhost:4000/Users/Delete/${id}`, {
+            axios.delete(`https://storykeeper-server.onrender.com/Users/Delete/${id}`, {
                 headers: { authorization: Cookie.auth_token }
             })
             .then(() => { 
