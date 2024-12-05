@@ -25,7 +25,7 @@ const Quizzes: React.FC = () => {
     useEffect(() => {
 
         const fetchQuizzes = async () => {
-            await axios.get(`http://localhost:4000/Quiz/${userID}/Quiz`, {
+            await axios.get(`https://storykeeper-server.onrender.com/Quiz/${userID}/Quiz`, {
             headers: { authorization: Cookie.auth_token },
             }) 
             .then((Response) => {
@@ -43,7 +43,7 @@ const Quizzes: React.FC = () => {
     // DELETE QUIZ
 
     const handleDelete= (id: any) => {
-        axios.delete(`http://localhost:4000/Quiz/${id}`, {
+        axios.delete(`https://storykeeper-server.onrender.com/Quiz/${id}`, {
             headers: { authorization: Cookie.auth_token } 
         }) 
         .then(() => {

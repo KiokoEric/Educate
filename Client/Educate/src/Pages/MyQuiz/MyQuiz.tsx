@@ -28,7 +28,7 @@ const MyQuiz:React.FC = () => {
     useEffect(() => {
 
         try {
-            axios.get(`http://localhost:4000/Quiz/${_id}`)
+            axios.get(`https://storykeeper-server.onrender.com/Quiz/${_id}`)
             .then(response => {
                 setName(response.data.Name) 
                 setQuestions(response.data.Questions) 

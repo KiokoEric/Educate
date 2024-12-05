@@ -62,7 +62,7 @@ const Create:React.FC = () => {
             Name, Description, Questions, userOwner
         }
         try {
-            await axios.post("http://localhost:4000/Quiz/AddQuiz", data, {
+            await axios.post("https://storykeeper-server.onrender.com/Quiz/AddQuiz", data, {
                 headers: { authorization: Cookie.auth_token },
             }) 
             .then(() => {
