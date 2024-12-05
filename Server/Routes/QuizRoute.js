@@ -2,7 +2,7 @@ const dotenv = require('dotenv');
 const express = require('express');
 const QuizRoute = express.Router();
 const jwt = require("jsonwebtoken");
-const Quiz = require("../Models/Quiz");
+const Quiz = require("../Models/Quiz.js");
 const cookieParser = require("cookie-parser");
 
 QuizRoute.use(cookieParser())

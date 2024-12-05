@@ -26,8 +26,8 @@ mongoose.connect(dbUrl)
 
 // IMPORT ROUTES
 
-const UserRoute = require("../Routes/UserRoute");
-const QuizRoute = require("../Routes/QuizRoute");  
+const UserRoute = require("../Routes/UserRoute.js");
+const QuizRoute = require("../Routes/QuizRoute.js");  
 
 app.use("/Quiz", QuizRoute);
 app.use("/Users", UserRoute);
